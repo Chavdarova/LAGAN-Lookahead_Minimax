@@ -1,1 +1,1 @@
-# LAGAN-Lookahead_Minimax
+# LAGAN: Lookahead-Minimax
