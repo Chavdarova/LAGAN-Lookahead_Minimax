@@ -1,8 +1,5 @@
 # Biliear game experiments
 
-
-## Stochastic game
-
 ## Dependencies
 - Python 3.6 or later
 - [PyTorch](https://pytorch.org/) 1.6
