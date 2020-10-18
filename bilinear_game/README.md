@@ -15,4 +15,4 @@ with open("./svre_results.json", 'r') as fs:
     ...
 ```
 
-We recommend reproducing our MNIST results in [Google Colab](https://colab.research.google.com/).
+We recommend running the notebooks in [Google Colab](https://colab.research.google.com/).
