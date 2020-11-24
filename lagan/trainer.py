@@ -433,34 +433,32 @@ class Trainer(object):
         # grad_var_logger_g = grad_var_logger_d = grad_mean_logger_g = grad_mean_logger_d = None
 
         if self.optim == 'sgd':
-            from optim import sgd as optm
-            self.g_optimizer = optm.SGD(filter(lambda p: p.requires_grad, self.G.parameters()),
-                                         self.g_lr, momentum=self.momentum)
-            self.d_optimizer = optm.SGD(filter(lambda p: p.requires_grad, self.D.parameters()),
-                                         self.d_lr, momentum=self.momentum)
+            self.g_optimizer = torch.optim.SGD(filter(lambda p: p.requires_grad, self.G.parameters()),
+                                               self.g_lr, momentum=self.momentum)
+            self.d_optimizer = torch.optim.SGD(filter(lambda p: p.requires_grad, self.D.parameters()),
+                                               self.d_lr, momentum=self.momentum)
             if self.extra:
-                self.g_optimizer_extra = optm.SGD(filter(lambda p: p.requires_grad,
-                                                          self.G_extra.parameters()),
-                                                   self.g_lr)
-                self.d_optimizer_extra = optm.SGD(filter(lambda p: p.requires_grad,
-                                                          self.D_extra.parameters()),
-                                                   self.d_lr)
+                self.g_optimizer_extra = torch.optim.SGD(filter(lambda p: p.requires_grad,
+                                                                self.G_extra.parameters()),
+                                                         self.g_lr)
+                self.d_optimizer_extra = torch.optim.SGD(filter(lambda p: p.requires_grad,
+                                                                self.D_extra.parameters()),
+                                                         self.d_lr)
             else:
                 self.g_optimizer_extra = self.g_optimizer
                 self.d_optimizer_extra = self.d_optimizer
         elif self.optim == 'adam':
-            from optim import adam as optm
-            self.g_optimizer = optm.Adam(filter(lambda p: p.requires_grad, self.G.parameters()),
-                                          self.g_lr, [self.g_beta1, self.beta2])
-            self.d_optimizer = optm.Adam(filter(lambda p: p.requires_grad, self.D.parameters()),
-                                          self.d_lr, [self.d_beta1, self.beta2])
+            self.g_optimizer = torch.optim.Adam(filter(lambda p: p.requires_grad, self.G.parameters()),
+                                                self.g_lr, [self.g_beta1, self.beta2])
+            self.d_optimizer = torch.optim.Adam(filter(lambda p: p.requires_grad, self.D.parameters()),
+                                                self.d_lr, [self.d_beta1, self.beta2])
             if self.extra:
-                self.g_optimizer_extra = optm.Adam(filter(lambda p: p.requires_grad,
-                                                           self.G_extra.parameters()),
-                                                    self.g_lr, [self.g_beta1, self.beta2])
-                self.d_optimizer_extra = optm.Adam(filter(lambda p: p.requires_grad,
-                                                           self.D_extra.parameters()),
-                                                    self.d_lr, [self.d_beta1, self.beta2])
+                self.g_optimizer_extra = torch.optim.Adam(filter(lambda p: p.requires_grad,
+                                                                 self.G_extra.parameters()),
+                                                          self.g_lr, [self.g_beta1, self.beta2])
+                self.d_optimizer_extra = torch.optim.Adam(filter(lambda p: p.requires_grad,
+                                                                 self.D_extra.parameters()),
+                                                          self.d_lr, [self.d_beta1, self.beta2])
             else:
                 self.g_optimizer_extra = self.g_optimizer
                 self.d_optimizer_extra = self.d_optimizer
