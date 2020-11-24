@@ -10,7 +10,7 @@
 ### CIFAR-10 \& SVHN
 
 To reproduce our results, run `main.py` with corresponding options, 
-see the `exe.sh` example script , or run:  `main.py --help` to list available options.
+see the `exe.sh` example script and the examples below, or run  `main.py --help` to list available options.
 
 
 #### Dataset
@@ -107,6 +107,11 @@ python main.py \
     --lookahead_k 5000 `# valid only if lookahead is activated` \
     --lookahead_alpha 0.5 `# valid only if lookahead is activated`
 ```
+
+#### Metrics
+To reproduce our FID and IS results, use the official repositories:
+- FID: https://github.com/bioinf-jku/TTUR,
+- IS: https://github.com/openai/improved-gan/.
 
 
 ### ImageNet
